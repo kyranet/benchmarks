@@ -1,0 +1,21 @@
+{
+  "name": "@kyranet/benchmark",
+  "version": "1.0.0",
+  "description": "Custom benchmark suites",
+  "type": "module",
+  "main": "index.mjs",
+  "author": "Aura Román <kyradiscord@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "commander": "^10.0.1"
+  },
+  "scripts": {
+    "start": "node --expose-gc index.mjs"
+  },
+  "packageManager": "yarn@3.5.1",
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/node": "^18.16.3"
+  }
+}

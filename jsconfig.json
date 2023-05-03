@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"lib": ["ESNext"],
+		"module": "ESNext",
+		"moduleResolution": "node16",
+		"target": "ESNext",
+		"strict": true,
+		"verbatimModuleSyntax": true,
+	}
+}
