@@ -1,7 +1,7 @@
 /**
  *
  * @param {Function} fn The function to run
- * @param {string[]} args The arguments to pass
+ * @param {any[]} args The arguments to pass
  * @returns
  */
 export function makeCallback(fn, args) {
