@@ -1,5 +1,4 @@
 /**
- *
  * @param {Function} fn The function to run
  * @param {any[]} args The arguments to pass
  * @returns

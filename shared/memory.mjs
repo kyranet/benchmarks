@@ -32,7 +32,7 @@ export function displayMemory(memory) {
 		`External      : ${displayBytes(memory.external)}`,
 		`Heap Total    : ${displayBytes(memory.heapTotal)}`,
 		`Heap Used     : ${displayBytes(memory.heapUsed)}`,
-		`RSS           : ${displayBytes(memory.rss)}`
+		`RSS           : ${displayBytes(memory.rss)}`,
 	].join('\n');
 }
 
@@ -48,7 +48,9 @@ function padUnit(unit) {
  * @param {NodeJS.MemoryUsage} previous
  */
 export function displayMemoryDifference(current, previous) {
-	return `Heap [Total: ${padUnit(displayBytesDifference(current.heapTotal - previous.heapTotal))} | Used: ${padUnit(displayBytesDifference(current.heapUsed - previous.heapUsed))}]`;
+	return `Heap [Total: ${padUnit(displayBytesDifference(current.heapTotal - previous.heapTotal))} | Used: ${padUnit(
+		displayBytesDifference(current.heapUsed - previous.heapUsed),
+	)}]`;
 }
 
 export function collect() {
