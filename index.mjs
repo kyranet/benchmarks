@@ -1,6 +1,7 @@
 import { readdir } from 'node:fs/promises';
 import { createHistogram, performance } from 'node:perf_hooks';
 import process from 'node:process';
+import { URL } from 'node:url'
 import { Option, program } from 'commander';
 import { args } from './config.mjs';
 import { displayHistogram, displayUnit } from './shared/histogram.mjs';
@@ -40,13 +41,13 @@ for (const file of eventFiles) {
 
 	const callbackFunction = makeCallback(fn, args);
 
-	let returnValue = callbackFunction();
+	const returnValue = callbackFunction();
 
 	const code = performance.timerify(
 		() => {
 			for (let i = 0; i < runs; i++) callbackFunction();
 		},
-		{ histogram: histogram },
+		{ histogram },
 	);
 
 	collect();
@@ -61,15 +62,14 @@ for (const file of eventFiles) {
 	results.push({ histogram, returnValue, time: timeEnd - timeStart, memoryStart, memoryEnd, name: file });
 }
 
-results
-	.sort((a, b) => a.time - b.time)
-	.forEach(({ histogram, time, returnValue, memoryEnd, memoryStart, name }) => {
+for (const { histogram, time, returnValue, memoryEnd, memoryStart, name } of results
+	.sort((a, b) => a.time - b.time)) {
 		console.log('Summary:');
 		console.log(`- ${name}     :`, displayHistogram(histogram));
 		console.log('  Took    :', displayUnit(time));
 		console.log('  Returned:', returnValue);
 		console.log(' ', displayMemoryDifference(memoryEnd, memoryStart));
-	});
+	}
 
 console.log();
 console.log('- Version:', process.version);

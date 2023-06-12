@@ -2,15 +2,18 @@
  * @param {number} bytes
  */
 export function displayBytes(bytes) {
-	if (bytes < 1024) return `${bytes} B`;
+	
+	let output = bytes;
+	
+	if (output < 1024) return `${output} B`;
 
-	bytes /= 1024;
-	if (bytes < 1024) return `${bytes.toFixed(3)} KB`;
+	output /= 1024;
+	if (output < 1024) return `${bytes.toFixed(3)} KB`;
 
-	bytes /= 1024;
+	output /= 1024;
 	if (bytes < 1024) return `${bytes.toFixed(3)} MB`;
 
-	bytes /= 1024;
+	output /= 1024;
 	return `${bytes.toFixed(3)} GB`;
 }
 

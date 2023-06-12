@@ -3,8 +3,8 @@
  */
 export default function (array) {
 	let highest = 0;
-	for (let i = 0; i < array.length; i++) {
-		if (array[i] > highest) highest = array[i];
+	for (let index = 0; index < array.length; index++) {
+		if (array[index] > highest) highest = array[index];
 	}
 
 	return highest;
