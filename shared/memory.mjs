@@ -1,19 +1,17 @@
+/* eslint-disable no-param-reassign */
 /**
  * @param {number} bytes
  */
-export function displayBytes(bytes) {
-	
-	let output = bytes;
-	
-	if (output < 1024) return `${output} B`;
+export function displayBytes(bytes) {	
+	if (bytes < 1024) return `${bytes} B`;
 
-	output /= 1024;
-	if (output < 1024) return `${bytes.toFixed(3)} KB`;
+	bytes /= 1024;
+	if (bytes < 1024) return `${bytes.toFixed(3)} KB`;
 
-	output /= 1024;
+	bytes /= 1024;
 	if (bytes < 1024) return `${bytes.toFixed(3)} MB`;
 
-	output /= 1024;
+	bytes /= 1024;
 	return `${bytes.toFixed(3)} GB`;
 }
 

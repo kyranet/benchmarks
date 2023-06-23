@@ -12,7 +12,7 @@
     "jsdoc/check-tag-names": "off",
     "jsdoc/no-undefined-types": "off",
     "unicorn/numeric-separators-style": "off",
-    "id-length": "off"
-  },
-	"ignorePatterns": ["**/tests/*"]
+    "id-length": "off",
+    "func-names": "off"
+  }
 }

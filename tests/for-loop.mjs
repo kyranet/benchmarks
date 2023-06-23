@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-for-loop */
 /**
  * @param {number[]} array
  */

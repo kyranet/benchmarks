@@ -12,14 +12,14 @@ export function displayUnit(nanoseconds) {
  * @param {string} unit
  */
 function padUnit(unit) {
-	return unit.padStart(9, ' ');
+	return unit.padEnd(9, ' ');
 }
 
 /**
  * @param {import('node:perf_hooks').RecordableHistogram} histogram
  */
 export function displayHistogram(histogram) {
-	return `${padUnit(displayUnit(histogram.mean))} [${padUnit(displayUnit(histogram.min))}...${padUnit(
+	return `Mean: ${padUnit(displayUnit(histogram.mean))} [Min: ${padUnit(displayUnit(histogram.min))} Max: ${padUnit(
 		displayUnit(histogram.max),
 	)}] ± ${padUnit(displayUnit(histogram.stddev))}`;
 }

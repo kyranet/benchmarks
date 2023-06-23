@@ -65,7 +65,7 @@ for (const file of eventFiles) {
 for (const { histogram, time, returnValue, memoryEnd, memoryStart, name } of results
 	.sort((a, b) => a.time - b.time)) {
 		console.log('Summary:');
-		console.log(`- ${name}     :`, displayHistogram(histogram));
+		console.log(`- ${name.padEnd(12, ' ')}     :`, displayHistogram(histogram));
 		console.log('  Took    :', displayUnit(time));
 		console.log('  Returned:', returnValue);
 		console.log(' ', displayMemoryDifference(memoryEnd, memoryStart));
