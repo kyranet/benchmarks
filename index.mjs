@@ -10,8 +10,14 @@ const cli = program
 	.summary('A benchmarking tool for comparing two methods')
 	.argument('<name>', 'The name of the directory to run')
 	.argument('[args...]', 'The arguments to pass to the method')
-	.addOption(new Option('-t, --times <number>', 'The amount of times to run the suite').default(1e4, '10k times').argParser(Number))
-	.addOption(new Option('-r, --runs <number>', 'The amount of times to run callback').default(1, 'once').argParser(Number))
+	.addOption(
+		new Option('-t, --times <number>', 'The amount of times to run the suite')
+			.default(1e4, '10k times')
+			.argParser(Number),
+	)
+	.addOption(
+		new Option('-r, --runs <number>', 'The amount of times to run callback').default(1, 'once').argParser(Number),
+	)
 	.parse();
 
 const [name, ...args] = cli.args;
@@ -33,13 +39,19 @@ const oldCallback = makeCallback(oldMethod, args);
 let oldReturn;
 let newReturn;
 
-const oldCode = performance.timerify(() => {
-	for (let i = 0; i < runs; i++) oldReturn = oldCallback();
-}, { histogram: oldHistogram });
+const oldCode = performance.timerify(
+	() => {
+		for (let i = 0; i < runs; i++) oldReturn = oldCallback();
+	},
+	{ histogram: oldHistogram },
+);
 
-const newCode = performance.timerify(() => {
-	for (let i = 0; i < runs; i++) newReturn = newCallback();
-}, { histogram: newHistogram });
+const newCode = performance.timerify(
+	() => {
+		for (let i = 0; i < runs; i++) newReturn = newCallback();
+	},
+	{ histogram: newHistogram },
+);
 
 collect();
 const oldMemoryStart = process.memoryUsage();
@@ -55,7 +67,7 @@ for (let n = 0; n < times; n++) newCode();
 const newTimeEnd = performance.now();
 const newMemoryEnd = process.memoryUsage();
 
-console.log('Summary:')
+console.log('Summary:');
 console.log('- Old     :', displayHistogram(oldHistogram));
 console.log('  Took    :', displayUnit(oldTimeEnd - oldTimeStart));
 console.log('  Returned:', oldReturn);

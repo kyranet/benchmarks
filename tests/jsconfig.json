@@ -1,0 +1,12 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"rootDir": ".",
+		"noEmit": true,
+		"paths": {
+			"#lib/*": ["../lib/*"]
+		}
+	},
+	"include": [".", "../lib"],
+	"references": [{ "path": "../lib" }]
+}

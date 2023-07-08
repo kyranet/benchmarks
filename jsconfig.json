@@ -7,6 +7,6 @@
 		"moduleResolution": "node16",
 		"target": "ESNext",
 		"strict": true,
-		"verbatimModuleSyntax": true,
+		"verbatimModuleSyntax": true
 	}
 }
