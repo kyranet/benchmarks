@@ -18,5 +18,10 @@
 		"@types/node": "^18.16.19",
 		"prettier": "^3.0.0",
 		"vitest": "^0.33.0"
+	},
+	"dependencies": {
+		"@discordjs/collection": "^1.5.1",
+		"@sapphire/snowflake": "^3.5.1",
+		"discord-api-types": "^0.37.47"
 	}
 }
